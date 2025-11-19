@@ -1,0 +1,194 @@
+/* ------------------------------
+   기본 설정
+------------------------------ */
+
+:root {
+  --bg: #f5f7fb;
+  --bg-card: #ffffff;
+  --text-main: #1f2933;
+  --text-sub: #6b7280;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --border-soft: #e5e7eb;
+  --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans KR", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------
+   전체 레이아웃
+------------------------------ */
+
+body {
+  font-family: var(--font-main);
+  background: radial-gradient(circle at top, #e0edff 0, #f5f7fb 45%, #f9fafb 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+main {
+  max-width: 960px;
+  width: 100%;
+  margin: 32px auto;
+  padding: 24px 20px 32px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* 작은 화면에서 여백 살짝 줄이기 */
+@media (max-width: 640px) {
+  main {
+    margin: 16px;
+    padding: 20px 16px 24px;
+    border-radius: 18px;
+  }
+}
+
+/* ------------------------------
+   공통 타이포 & 섹션
+------------------------------ */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
+p {
+  margin: 4px 0 0;
+  line-height: 1.6;
+}
+
+/* header.html, footer.html 에 쓸 용도 */
+
+.page-header {
+  text-align: center;
+  padding: 12px 8px 20px;
+  border-bottom: 1px solid var(--border-soft);
+  margin-bottom: 16px;
+}
+
+.page-header-title {
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+}
+
+.page-header-subtitle {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--text-sub);
+}
+
+/* 절(verse) 공통 스타일 */
+
+.anthem-section {
+  padding: 16px 18px;
+  margin: 10px 0;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  position: relative;
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out,
+    background 0.15s ease-out;
+}
+
+.anthem-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+  background: #ffffff;
+}
+
+.anthem-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.anthem-section-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.anthem-section-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+/* 가사 텍스트 */
+
+.anthem-lyrics {
+  margin-top: 6px;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  white-space: pre-line; /* 줄바꿈 유지용 */
+}
+
+/* footer */
+
+.page-footer {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-soft);
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  text-align: center;
+}
+
+/* ------------------------------
+   향후 JS 기능 대비 클래스 (예: 하이라이트)
+------------------------------ */
+
+.anthem-section--active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+}
+
+/* 다크모드 대비 (나중에 body에 .dark 붙이면 됨) */
+
+body.dark {
+  --bg: #020617;
+  --bg-card: #020617;
+  --text-main: #e5e7eb;
+  --text-sub: #9ca3af;
+  --accent: #60a5fa;
+  --accent-soft: #1d3555;
+  --border-soft: #1f2937;
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+body.dark {
+  background: radial-gradient(circle at top, #1e293b 0, #020617 50%, #020617 100%);
+}
+
+body.dark main {
+  background: rgba(15, 23, 42, 0.92);
+}
+
+body.dark .anthem-section {
+  background: #020617;
+}
